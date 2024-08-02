@@ -6,7 +6,14 @@ local function isViProcess(pane)
 	-- get_foreground_process_name On Linux, macOS and Windows,
 	-- the process can be queried to determine this path. Other operating systems
 	-- (notably, FreeBSD and other unix systems) are not currently supported
-	return pane:get_foreground_process_name():find("n?vim") ~= nil
+	if
+		pane:get_foreground_process_name():find("yazi") ~= nil
+		or pane:get_foreground_process_name():find("n?vim") ~= nil
+	then
+		return true
+	else
+		return false
+	end
 	-- return pane:get_title():find("n?vim") ~= nil
 end
 
@@ -42,9 +49,9 @@ function module.apply_to_config(config)
 		{ key = "k", mods = "CTRL", action = act.EmitEvent("ActivatePaneDirection-up") },
 		{ key = "l", mods = "CTRL", action = act.EmitEvent("ActivatePaneDirection-right") },
 	}
-  for _, keybind in pairs(keys) do
-    table.insert(config.keys, keybind);
-  end
+	for _, keybind in pairs(keys) do
+		table.insert(config.keys, keybind)
+	end
 end
 
 return module
