@@ -19,9 +19,9 @@ vimIntegration.apply_to_config(config)
 wezterm.on('gui-startup', function(cmd)
   local tab, pane, window = mux.spawn_window(cmd or {})
   window:gui_window():maximize()
-  wezterm.sleep_ms(10)
-  local panel = pane:split {direction = 'Left', size = 46}
-  panel:split {direction = 'Top', size = 8, args = {"spotify_player"}}
+  -- wezterm.sleep_ms(10)
+  -- local panel = pane:split {direction = 'Left', size = 46}
+  -- panel:split {direction = 'Top', size = 8, args = {"spotify_player"}}
 end)
 
 config.color_scheme = 'tokyomight_fullscreen'

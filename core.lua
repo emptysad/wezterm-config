@@ -10,6 +10,10 @@ function module.apply_to_config(config)
 	config.enable_tab_bar = true
 	config.tab_bar_at_bottom = true
 	config.use_fancy_tab_bar = false
+  config.front_end = "WebGpu"
+  config.max_fps = 240
+  config.webgpu_power_preference = "HighPerformance"
+  -- config.max_fps = 60
 	config.window_padding = {
 		left = 0,
 		right = 0,

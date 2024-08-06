@@ -22,7 +22,8 @@ end
 
 function module.apply_to_config(config)
 	wezterm.on("update-right-status", function(window, pane)
-		local date = wezterm.strftime("%H:%M")
+		local time = wezterm.strftime("%H:%M")
+		local date = wezterm.strftime("%a %d.%m.%Y")
 		local bat = ""
 		local bat_color = ""
 		local bat_weight = "Normal"
@@ -64,6 +65,14 @@ function module.apply_to_config(config)
 
 			{ Attribute = { Intensity = "Normal"} },
 			{ Foreground = { Color = "#343434" } },
+			{ Text = textAlign("│", 4, "left")},
+
+			{ Attribute = { Intensity = "Normal" } },
+			{ Foreground = { Color = "gray" } },
+			{ Text = date .. " " },
+
+			{ Attribute = { Intensity = "Normal"} },
+			{ Foreground = { Color = "#343434" } },
 			{ Text = textAlign("│", 3, "right")},
 
 			{ Attribute = { Intensity = bat_weight } },
@@ -72,7 +81,7 @@ function module.apply_to_config(config)
 
 			{ Attribute = { Intensity = "Normal" } },
 			{ Foreground = { Color = "white" } },
-			{ Text = date .. " " },
+			{ Text = time .. " " },
 		}))
 	end)
 
